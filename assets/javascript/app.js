@@ -2,6 +2,7 @@ var correct = 0;
 var counter = 90;
 var downloadTimer;
 
+//Creating arrays that stores all the questions, potential answers and the correct answer
 var questions = [
     {
         question: "How old do researchers believe the world is?",
@@ -68,6 +69,7 @@ var questions = [
 
 
 
+// This code displays the questions and potential answers with 
 function createquestions() {
     for (var i = 0; i < questions.length; i++) {
         $('#quiz').append("<h3>" + questions[i].question + "<h3>");
@@ -77,14 +79,16 @@ function createquestions() {
     }
 }
 
+//Function is run when the start button is pressed
 function startGame() {
     $('#startBtn').hide();
     $('#quiz').show();
     $('#submit').show();
     $('#timer').show();
     timerStart();
- }
+}
 
+// Function is run when the submit button is pressed
 function submit() {
     quizSubmit();
     $('#results').show();
@@ -97,6 +101,7 @@ function submit() {
 
 }
 
+// This function checks to see if the answer provided is correct 
 function quizSubmit() {
     var inputs = $(".checked").children("input:checked");
   console.log('inputs', inputs);
@@ -110,6 +115,7 @@ function quizSubmit() {
   }
 }
 
+// This function starts the timer
 function timerStart() {
 var downloadTimer = setInterval(function(){
   $('#timer').html(counter + " seconds remaining");
@@ -121,6 +127,7 @@ var downloadTimer = setInterval(function(){
 }, 1000);
 }
 
+// This function is run if the timer reaches 0;
 function outOfTime() {
     $('#results').show();
     $('#quiz').hide();
@@ -130,14 +137,18 @@ function outOfTime() {
     
 }
 
+// Calling on the function to display the questions and possible answers
 createquestions();
 
+//Hiding code we don't want shown at the start
 $('#quiz').hide();
 $('#submit').hide();
 $('#results').hide();
 $('#timer').hide();
 
+//Code saying to run the startGame function when the start button is clicked
 $('#startBtn').on("click", startGame);
 
+//Code saying to run the submit function when the submit button is clicked
 $('#submit').on("click", submit);
 
