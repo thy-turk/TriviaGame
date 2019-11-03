@@ -1,5 +1,5 @@
 var correct = 0;
-
+counter = 90;
 
 var questions = [
     {
@@ -57,6 +57,8 @@ function startGame() {
     $('#startBtn').hide();
     $('#quiz').show();
     $('#submit').show();
+    $('#timer').show();
+    timerStart();
  }
 
 function submit() {
@@ -82,11 +84,20 @@ function quizSubmit() {
 }
 
 
+
+function timerStart() {
+    setInterval(counter--, 1000);
+    $('#timer').html(counter);
+
+}
+
+
 createquestions();
 
 $('#quiz').hide();
 $('#submit').hide();
 $('#results').hide();
+$('#timer').hide();
 
 $('#startBtn').on("click", startGame);
 
