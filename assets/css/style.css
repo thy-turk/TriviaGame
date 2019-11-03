@@ -4,7 +4,7 @@ h1 {
     background-color: black;
     padding-top: 5px;
     padding-bottom: 5px;
-    
+    font-family: 'Space Mono', monospace;
 }
 
 body {
@@ -15,6 +15,7 @@ body {
 .container {
     background: rgba(0,0,0,0.5);
     color: white;
+    font-family: 'Space Mono', monospace;
 }
 
 #results {
@@ -28,4 +29,16 @@ body {
 #timer {
    text-align: center;
    font-size: 20px;
+}
+
+#results {
+    text-align: center;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+.sm-buffer {
+    margin-top: 5px;
 }
