@@ -113,8 +113,7 @@ function quizSubmit() {
       console.log('correct', correct);
     } 
   }
-  
-
+  clearInterval(downloadTimer);
 }
 
 // This function starts the timer
@@ -131,6 +130,7 @@ function timerStart() {
 
 // This function is run if the timer reaches 0;
 function outOfTime() {
+    quizSubmit();
     $('#results').show();
     $('#quiz').hide();
     $('#submit').hide();
