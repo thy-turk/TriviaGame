@@ -1,6 +1,4 @@
-// var showQuestions;
-
-var triviaArea = $("#quiz");
+var correct = 0;
 
 
 var questions = [
@@ -55,19 +53,47 @@ function createquestions() {
     }
 }
 
-
-
-  createquestions();
-
-  $('#quiz').hide();
-  $('#submit').hide();
-
-  $('#startBtn').on("click", startGame);
-
- function startGame() {
+function startGame() {
     $('#startBtn').hide();
     $('#quiz').show();
     $('#submit').show();
  }
 
+function submit() {
+    quizSubmit();
+    $('#results').show();
+    $('#quiz').hide();
+    $('#submit').hide();
+    $('#results').html("You got " + correct + "/3 questions correct!")
+
+}
+
+function quizSubmit() {
+    var inputs = $(".checked").children("input:checked");
+  console.log('inputs', inputs);
+  for (var i = 0; i < inputs.length; i++) {
+    console.log('inputs[i].val()', inputs[i].value);
+    console.log(' questions[i].correctAnswer', questions[i].correctAnswer);
+    if (inputs[i].value === questions[i].correctAnswer) {
+      correct++;
+      console.log('correct', correct);
+    } 
+  }
+}
+
+
+createquestions();
+
+$('#quiz').hide();
+$('#submit').hide();
+$('#results').hide();
+
+$('#startBtn').on("click", startGame);
+
+
+
+
+
+ 
+$('#submit').on("click", submit);
 
