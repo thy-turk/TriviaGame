@@ -113,7 +113,7 @@ function quizSubmit() {
       console.log('correct', correct);
     } 
   }
-  outOfTime();
+  
 
 }
 
@@ -124,6 +124,7 @@ function timerStart() {
         counter -= 1;
         if(counter <= -1){
             clearInterval(downloadTimer);
+            outOfTime();
         } 
     }, 1000);
 }
