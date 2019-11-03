@@ -59,7 +59,7 @@ var questions = [
              'A dog named Laika',
              'A cat named Felicette',
              'A tortiose named George',
-             'A monkey called Albert',
+             'A monkey named Albert',
 
         ],
         correctAnswer: 'A dog named Laika'
@@ -113,18 +113,19 @@ function quizSubmit() {
       console.log('correct', correct);
     } 
   }
+  outOfTime();
+
 }
 
 // This function starts the timer
 function timerStart() {
-var downloadTimer = setInterval(function(){
-  $('#timer').html(counter + " seconds remaining");
-  counter -= 1;
-  if(counter <= -1){
-    clearInterval(downloadTimer);
-    outOfTime();
-  } 
-}, 1000);
+    var downloadTimer = setInterval(function(){
+        $('#timer').html(counter + " seconds remaining");
+        counter -= 1;
+        if(counter <= -1){
+            clearInterval(downloadTimer);
+        } 
+    }, 1000);
 }
 
 // This function is run if the timer reaches 0;
